@@ -1,1 +1,6 @@
-message(STATUS "The library Eigen is header only an located at ./externals/eigen")
+add_subdirectory(eigen)
+if(TARGET Eigen3::Eigen)
+    message(STATUS "The library Eigen is available in CMake as Eigen3::Eigen")
+else()
+    message(FATAL_ERROR "Failed to find the package Eigen, check if the git submodules where initialized")
+endif()
